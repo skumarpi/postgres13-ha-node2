@@ -34,7 +34,7 @@ properties:
       vault: POSTGRESQL_PASSWORD
     POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
           vault: POSTGRESQL_SPRINGBOOTWEB_PASSWORD
-    revision : 79
+    revision : 80
 
     #WebDav Setup
     PUSH_BACKUP_WEBDAV: False
