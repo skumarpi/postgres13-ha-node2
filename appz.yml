@@ -1,6 +1,6 @@
 app:
-    name: Postgres Master
-    code: POSTGRES
+    name: Postgres HA
+    code: POSTGRESHA
     notify: skumar@ecloudcontrol.com
     
 build:
@@ -8,33 +8,29 @@ build:
     env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: postgres_master-13.3
+    image_template: postgres_ha-13.3
     
 deploy:
-    context: skumarpi/QA
+    context: skumarpi/DEV
     type: statefulset
     replicas: 1
     port:
     - 5432
     
 volumes:
-  - claim: postgres-master-data
-    mount: /appz/data
+  - claim: postgres-monitor-data
+    mount: /appz/data/.monitor
     name: data
     size: 5Gi
     mode: ReadWriteOnce   
     
 properties:
-    POSTGRESQL_REPLICATION_MODE: master
-    POSTGRESQL_DATA: /appz/data
+    POSTGRESQL_DATA: /appz/data/.monitor
     POSTGRESQL_CONNECTUSER: postgres
     POSTGRESQL_CONNECTIONDB: postgres
     POSTGRESQL_PORT: 5432
     POSTGRESQL_PASSWORD: 
       vault: POSTGRESQL_PASSWORD
-    POSTGRESQL_SYNCHRONOUS_COMMIT_MODE: on
-    POSTGRESQL_NUM_SYNCHRONOUS_REPLICAS: 1
-    POSTGRESQL_REP_USER: replica
     POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
           vault: POSTGRESQL_SPRINGBOOTWEB_PASSWORD
     PGPASSWORD: 
