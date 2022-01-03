@@ -19,13 +19,14 @@ deploy:
     
 volumes:
   - claim: postgres-monitor-data
-    mount: /appz/data/.monitor
+    mount: /appz/data/
     name: data
     size: 5Gi
     mode: ReadWriteOnce   
     
 properties:
-    POSTGRESQL_DATA: /appz/data/.monitor
+    #POSTGRESQL_DATA: /appz/data/
+    PGDATA: /appz/data/
     POSTGRESQL_CONNECTUSER: postgres
     POSTGRESQL_CONNECTIONDB: postgres
     POSTGRESQL_PORT: 5432
@@ -33,8 +34,6 @@ properties:
       vault: POSTGRESQL_PASSWORD
     POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
           vault: POSTGRESQL_SPRINGBOOTWEB_PASSWORD
-    PGPASSWORD: 
-      vault: PGPASSWORD
     revision : 79
 
     #WebDav Setup
