@@ -18,7 +18,7 @@ deploy:
     - 5432
     
 volumes:
-  - claim: postgres-monitor-data
+  - claim: postgres-node1-data
     mount: /appz/data
     name: data
     size: 5Gi
@@ -30,7 +30,8 @@ properties:
     POSTGRESQL_CONNECTUSER: postgres
     POSTGRESQL_CONNECTIONDB: postgres
     POSTGRESQL_PORT: 5432
-    POSTGRES_MONITOR_HA: True
+    POSTGRES_MONITOR_HA: False
+    POSTGRES_MONITOR_URL: postgres://autoctl_node@10.1.37.168:5432/pg_auto_failover?sslmode=require
     POSTGRESQL_PASSWORD: 
       vault: POSTGRESQL_PASSWORD
     POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
