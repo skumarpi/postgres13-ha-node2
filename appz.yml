@@ -18,7 +18,7 @@ deploy:
     - 5432
     
 volumes:
-  - claim: postgres-node1-data
+  - claim: postgres-node2-data
     mount: /appz/data
     name: data
     size: 5Gi
