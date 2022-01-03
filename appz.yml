@@ -19,14 +19,14 @@ deploy:
     
 volumes:
   - claim: postgres-monitor-data
-    mount: /appz/data/
+    mount: /appz/data
     name: data
     size: 5Gi
     mode: ReadWriteOnce   
     
 properties:
     #POSTGRESQL_DATA: /appz/data/
-    PGDATA: /appz/data/
+    #PGDATA: /appz/data/
     POSTGRESQL_CONNECTUSER: postgres
     POSTGRESQL_CONNECTIONDB: postgres
     POSTGRESQL_PORT: 5432
