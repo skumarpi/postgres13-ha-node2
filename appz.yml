@@ -1,6 +1,6 @@
 app:
-    name: Postgres HA
-    code: POSTGRESHA
+    name: Postgres HA Node 2
+    code: POSTGRESHANODE2
     notify: skumar@ecloudcontrol.com
     
 build:
@@ -25,17 +25,13 @@ volumes:
     mode: ReadWriteOnce   
     
 properties:
-    #POSTGRESQL_DATA: /appz/data/
-    #PGDATA: /appz/data/
     POSTGRESQL_CONNECTUSER: postgres
     POSTGRESQL_CONNECTIONDB: postgres
     POSTGRESQL_PORT: 5432
-    POSTGRES_MONITOR_HA: False
-    POSTGRES_MONITOR_URL: postgres://autoctl_node@10.1.37.168:5432/pg_auto_failover?sslmode=require
+    ENABLE_MONITOR: False
+    POSTGRES_MONITOR_URL: postgres://autoctl_node@postgres13-ha-monitor-13-x:5432/pg_auto_failover?sslmode=require
     POSTGRESQL_PASSWORD: 
       vault: POSTGRESQL_PASSWORD
-    POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
-          vault: POSTGRESQL_SPRINGBOOTWEB_PASSWORD
     revision : 82
 
     #WebDav Setup
