@@ -23,6 +23,16 @@ volumes:
     name: data
     size: 5Gi
     mode: ReadWriteOnce   
+  - claim: postgres-node2-home
+    mount: /appz/home
+    name: home
+    size: 5Gi
+    mode: ReadWriteOnce   
+  - claim: postgres-node2-backup
+    mount: /appz/backup
+    name: backup
+    size: 5Gi
+    mode: ReadWriteOnce  
     
 properties:
     POSTGRESQL_CONNECTUSER: postgres
