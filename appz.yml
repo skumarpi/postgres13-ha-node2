@@ -42,7 +42,7 @@ properties:
     POSTGRES_MONITOR_URL: postgres://autoctl_node@postgres13-ha-monitor-13-x:5432/pg_auto_failover?sslmode=require
     POSTGRESQL_PASSWORD: 
       vault: POSTGRESQL_PASSWORD
-    revision : 88
+    revision : 89
 
     #WebDav Setup
     PUSH_BACKUP_WEBDAV: False
